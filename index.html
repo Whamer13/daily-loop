@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101612">
+  <meta name="description" content="Find your next daily puzzle. Browse word games, geography challenges, trivia, number games, music, films and sport in one searchable directory.">
+  <meta property="og:title" content="Daily Loop — Your daily games, in one place">
+  <meta property="og:description" content="A searchable directory of daily puzzle games. Find today's game, save favourites and discover something new.">
+  <meta property="og:type" content="website">
+  <title>Daily Loop — Your daily games, in one place</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!--
+    ADSENSE SETUP — keep this commented until an AdSense account is approved.
+    1) Replace ca-pub-XXXXXXXXXXXXXXXX with the publisher ID supplied by AdSense.
+    2) Add the approved AdSense script here and configure a Google-certified CMP
+       for UK/EEA visitors before serving personalised ads.
+    3) Add your real ad-slot IDs to the <ins> elements in the ad spaces below.
+  -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Daily Loop home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span>daily<span class="brand-light">loop</span><small>.games</small></span>
+      </a>
+      <nav class="header-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#directory">Discover</a>
+        <button class="nav-link" id="show-favourites" type="button">My favourites <span class="favourite-count" id="favourite-count">0</span></button>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+      <a class="header-cta" href="#directory">Find a game <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="live-dot"></span> YOUR DAILY PUZZLE HUB</div>
+          <h1 id="hero-title">One place.<br><em>Every day's</em> next little challenge.</h1>
+          <p class="hero-description">Word games, geography, brain teasers, trivia and more. Find a new daily ritual or keep all your favourites close.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#directory">Explore the games <span aria-hidden="true">↓</span></a>
+            <button class="button button-quiet" id="surprise-button" type="button"><span aria-hidden="true">✳</span> Surprise me</button>
+          </div>
+          <div class="hero-meta"><strong id="game-total">60+</strong> games to explore <span class="meta-divider">·</span> <strong>7</strong> categories</div>
+        </div>
+        <div class="hero-art" aria-label="Decorative puzzle tiles">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="tile tile-word">W</div><div class="tile tile-map">⌖</div><div class="tile tile-number">42</div>
+          <div class="tile tile-grid"><i></i><i></i><i></i><i></i></div><div class="tile tile-star">✳</div>
+          <div class="art-caption"><span class="art-caption-dot"></span> A fresh challenge awaits</div>
+        </div>
+      </section>
+
+      <section class="ad-wrap" aria-label="Advertisement">
+        <div class="ad-slot ad-leaderboard">
+          <span class="ad-label">ADVERTISEMENT</span>
+          <span class="ad-placeholder">Your ad could appear here</span>
+          <!-- After approval, replace this comment with an AdSense ad unit supplied by your account. -->
+        </div>
+      </section>
+
+      <section class="directory-section" id="directory" aria-labelledby="directory-heading">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow eyebrow-dark">THE DAILY LINE-UP</div>
+            <h2 id="directory-heading">Find your next <em>favourite.</em></h2>
+            <p class="section-intro">Search the collection or pick a category. Every Play button takes you to the game's own website.</p>
+          </div>
+          <div class="results-note"><span class="results-number" id="results-count">60</span><span>games listed</span></div>
+        </div>
+
+        <div class="directory-tools">
+          <label class="search-box" for="game-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+            <input id="game-search" type="search" placeholder="Search games, topics or categories…" autocomplete="off">
+            <kbd>/</kbd>
+          </label>
+          <div class="sort-wrap">
+            <label class="visually-hidden" for="sort-games">Sort games</label>
+            <select id="sort-games">
+              <option value="popular">Recommended</option>
+              <option value="az">A–Z</option>
+              <option value="za">Z–A</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="category-list" id="category-list" aria-label="Filter by category">
+          <button class="category-chip selected" data-category="All" type="button">✦ All games</button>
+          <button class="category-chip" data-category="Word" type="button">Aa Word</button>
+          <button class="category-chip" data-category="Geography" type="button">◎ Geography</button>
+          <button class="category-chip" data-category="Numbers & logic" type="button">▦ Numbers & logic</button>
+          <button class="category-chip" data-category="Trivia" type="button">✳ Trivia</button>
+          <button class="category-chip" data-category="Film & music" type="button">♫ Film & music</button>
+          <button class="category-chip" data-category="Sport & gaming" type="button">◈ Sport & gaming</button>
+          <button class="category-chip" data-category="Food & nature" type="button">❋ Food & nature</button>
+          <button class="category-chip" data-category="Favourites" type="button">♡ Favourites</button>
+        </div>
+
+        <div class="active-filter-row" id="active-filter-row" hidden>
+          <span id="active-filter-label"></span>
+          <button id="clear-filters" type="button">Clear filters ×</button>
+        </div>
+
+        <div class="game-grid" id="game-grid" aria-live="polite"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <div class="empty-icon">⌕</div>
+          <h3>No games found</h3>
+          <p>Try another search or clear the filters.</p>
+          <button class="button button-primary" id="empty-reset" type="button">Show all games</button>
+        </div>
+
+        <section class="ad-wrap ad-inline-wrap" aria-label="Advertisement">
+          <div class="ad-slot ad-inline">
+            <span class="ad-label">ADVERTISEMENT</span>
+            <span class="ad-placeholder">Your ad could appear here</span>
+            <!-- Add a second approved AdSense ad unit here when your account is ready. -->
+          </div>
+        </section>
+
+        <div class="directory-footnote">Independent directory · Games are created and hosted by their respective owners. Daily Loop is not affiliated with the games listed.</div>
+      </section>
+
+      <section class="editorial-section" aria-labelledby="routine-heading">
+        <div class="editorial-heading">
+          <div class="eyebrow eyebrow-dark">MAKE IT YOUR OWN</div>
+          <h2 id="routine-heading">A daily line-up that <em>works for you.</em></h2>
+          <p>There is no need to play every puzzle. A good daily routine is a short mix of challenges you enjoy, with enough variety to keep it interesting.</p>
+        </div>
+        <div class="routine-grid">
+          <article class="routine-card"><span class="routine-number">01</span><h3>Start with a word game</h3><p>Wordle, Connections or Strands are familiar starting points. Choose the format you enjoy most rather than trying to complete every word puzzle.</p><a href="#directory" data-jump-category="Word">Browse word games <span>↗</span></a></article>
+          <article class="routine-card"><span class="routine-number">02</span><h3>Switch the subject</h3><p>Try a map, a number puzzle or a trivia challenge next. Changing the type of problem makes your line-up feel less repetitive.</p><a href="#directory" data-jump-category="Geography">Explore geography <span>↗</span></a></article>
+          <article class="routine-card"><span class="routine-number">03</span><h3>Save what you like</h3><p>Tap the star on a game card to keep it in your favourites. Your list is saved in this browser, so you can return to it tomorrow.</p><button type="button" id="routine-favourites">See favourites <span>↗</span></button></article>
+        </div>
+        <div class="faq-block">
+          <div class="eyebrow eyebrow-dark">GOOD TO KNOW</div><h2>Daily games, <em>explained.</em></h2>
+          <details><summary>What counts as a daily game?</summary><p>A daily game usually offers a new shared puzzle or challenge on a regular daily schedule. Some also include practice modes, archives or extra rounds; the daily challenge is the main reason they are listed here.</p></details>
+          <details><summary>Do I play the games on Daily Loop?</summary><p>No. Daily Loop is a directory. Play links take you to the independent website that runs each game. That site controls its own rules, accounts, availability, advertising and privacy practices.</p></details>
+          <details><summary>Are all the games free?</summary><p>Many offer a free daily challenge, but access rules can change and some sites may require an account or offer paid extras. Check the destination website before signing up or paying for anything.</p></details>
+          <details><summary>Does this directory include every daily game?</summary><p>No. New games launch frequently and some disappear or change address. This is a curated collection that will need regular updates, not a complete list of every daily game on the internet.</p></details>
+          <details><summary>How are favourites saved?</summary><p>Your favourite game names are saved in local storage in the browser you are using. They are not synced between devices and can be cleared by removing this site's browser data.</p></details>
+        </div>
+      </section>
+
+      <section class="bottom-banner">
+        <div class="bottom-spark" aria-hidden="true">✳</div>
+        <div><div class="eyebrow">A LITTLE EVERY DAY</div><h2>Make room for a <em>daily</em> brain break.</h2><p>Save the games you love and make your own daily line-up.</p></div>
+        <button class="button button-light" id="bottom-favourites" type="button">View favourites <span aria-hidden="true">→</span></button>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span>daily<span class="brand-light">loop</span><small>.games</small></span></a>
+      <p>A tidy home for your daily puzzles.</p>
+      <div class="footer-links"><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="#routine-heading">How it works</a><a href="mailto:hello@yourdomain.com">Contact</a></div>
+      <div class="copyright">© <span id="year"></span> Daily Loop. All game names and trademarks belong to their respective owners.</div>
+    </footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
